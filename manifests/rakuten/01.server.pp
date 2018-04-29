@@ -11,8 +11,7 @@ package { 'apache2':
   ensure => installed,
 }
 
-node 'local.rakuten.puppet' {
-  class { 'apache': }             # use apache module
+node 'local.rakuten.puppet' {           
   apache::vhost { 'local.rakuten.com':  # define vhost resource
     port    => '80',
     docroot => '/var/www/html'
