@@ -10,10 +10,13 @@ package { 'apache2':
   require => Exec['apt-update'],        # require 'apt-update' before installing
   ensure => installed,
 }
-
-node 'local.rakuten.puppet' {           
-  apache::vhost { 'local.rakuten.com':  # define vhost resource
-    port    => '80',
-    docroot => '/var/www/html'
-  }
+service { 'apache2':
+  ensure => running,
 }
+
+#node 'local.rakuten.puppet' {           
+  #apache::vhost { 'local.rakuten.com':  # define vhost resource
+    #port    => '80',
+    #docroot => '/var/www/html'
+  #}
+#}
