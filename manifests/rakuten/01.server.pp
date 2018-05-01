@@ -7,11 +7,10 @@ class { "nginx":
     server_tokens         => "off"
   }
 
-  file { "/aeappdir/webapps/aetn.watch.graphql":
+  file { "/webapps/devops":
     ensure => directory,
-    owner  => "forest",
-    group  => "forest",
-    require => File[ "/aeappdir/webapps" ],
+    owner  => "root",
+    group  => "root",
   }
 
 }
