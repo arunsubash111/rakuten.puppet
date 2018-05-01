@@ -15,7 +15,8 @@ service { 'apache2':
 }
 
 #node 'local.rakuten.puppet' {           
-  #apache::vhost { 'local.rakuten.com':  # define vhost resource
+  #apache::vhost { 'local.rakuten.com':  
+  # define vhost resource
     #port    => '80',
     #docroot => '/var/www/html'
   #}
