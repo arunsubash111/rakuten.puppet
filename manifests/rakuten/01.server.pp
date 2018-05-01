@@ -32,7 +32,7 @@ class { "nginx":
   }
 
 
-  file { '/aeappdir':
+  file { '/webapps':
     ensure => directory,
     owner   => 'root',
     group   => 'root',
