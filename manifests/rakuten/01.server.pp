@@ -1,19 +1,33 @@
+class watch_graphql_server {
 
+class { "nginx":
+    worker_processes      => "auto",
+    worker_rlimit_nofile  => 64000,
+    worker_connections    => 20000,
+    server_tokens         => "off"
+  }
 
+  file { "/aeappdir/webapps/aetn.watch.graphql":
+    ensure => directory,
+    owner  => "forest",
+    group  => "forest",
+    require => File[ "/aeappdir/webapps" ],
+  }
 
-
-# install apache2 package
-package { 'apache2':
-  ensure => installed,
 }
-service { 'apache2':
-  ensure => running,
-}
 
-#node 'local.rakuten.puppet' {           
-  #apache::vhost { 'local.rakuten.com':  
-  # define vhost resource
-    #port    => '80',
-    #docroot => '/var/www/html'
-  #}
-#}
+
+class local_server {
+
+  nginx::resource::vhost { "local-graphql.watch.aetnd.com":
+    proxy             => "http://watchgraphql",
+    server_name       => [ "_", "local-graphql.watch.aetnd.com"],
+    index_files       => [],
+    vhost_cfg_prepend => {
+      "error_page 403" => "/403",
+      "error_page 404" => "/404",
+      "error_page 500" => "/timeout.html",
+      "error_page 503" => "/timeout.html",
+    },
+  }
+}
