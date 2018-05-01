@@ -1,14 +1,5 @@
 class watch_graphql_server {
 
-
-exec { 'yum-update':
-    command => '/usr/bin/yum update bash -y',
-  }
-
-  exec { 'ghost-issue':
-    command => '/usr/bin/yum clean all; /usr/bin/yum update glibc -y',
-  }
-
   include stdlib
 
   $source = $::operatingsystemmajrelease ? {
@@ -51,7 +42,7 @@ class { "nginx":
 class local_server {
 
   nginx::resource::vhost { "local-graphql.watch.aetnd.com":
-    proxy             => "http://watchgraphql",
+    proxy             => "http://127.0.0.1:5000",
     server_name       => [ "_", "local-graphql.watch.aetnd.com"],
     index_files       => [],
     vhost_cfg_prepend => {
