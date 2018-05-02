@@ -22,6 +22,8 @@ class { "nginx":
     server_tokens         => "off"
   }
 
+class { "python": }  
+
 
   file { '/webapps':
     ensure => directory,
