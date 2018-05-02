@@ -24,6 +24,12 @@ class { "nginx":
 
 class { "python": }  
 
+ensure_packages(['python-pip-flask'], {
+         ensure   => present,
+         provider => 'pip',
+         require => [ Class['python'] ],
+  })
+
 
   file { '/webapps':
     ensure => directory,
