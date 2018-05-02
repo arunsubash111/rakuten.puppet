@@ -45,11 +45,5 @@ class local_server {
     proxy             => "http://127.0.0.1:5000",
     server_name       => [ "_", "local-graphql.watch.aetnd.com"],
     index_files       => [],
-    vhost_cfg_prepend => {
-      "error_page 403" => "/403",
-      "error_page 404" => "/404",
-      "error_page 500" => "/timeout.html",
-      "error_page 503" => "/timeout.html",
-    },
   }
 }
