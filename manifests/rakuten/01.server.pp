@@ -24,8 +24,8 @@ class { "nginx":
 
 class { "python": }  
 
-ensure_packages(['flask'], {
-         ensure   => present,
+package { 'flask':
+         ensure   => installed,
          provider => 'pip',
          require => [ Class['python'] ],
   })
