@@ -22,8 +22,8 @@ class { "nginx":
     server_tokens         => "off"
   }
 
-class { "python": 
-version => "2.7.6"
+class { "python":
+version => '2.6'
 }  
 
 package { 'flask':
