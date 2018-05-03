@@ -22,9 +22,7 @@ class { "nginx":
     server_tokens         => "off"
   }
 
-class { "python":
-version => '33'
-}  
+class { "python":}  
 
 package { 'flask':
          ensure   => installed,
