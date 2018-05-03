@@ -28,7 +28,7 @@ package { 'flask':
          ensure   => installed,
          provider => 'pip',
          require => [ Class['python'] ],
-  })
+  }
 
 
   file { '/webapps':
