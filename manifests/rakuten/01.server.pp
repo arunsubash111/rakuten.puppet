@@ -23,7 +23,7 @@ class { "nginx":
   }
 
 class { "python":
-version => '3'
+version => '33'
 }  
 
 package { 'flask':
