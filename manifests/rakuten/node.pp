@@ -1,5 +1,5 @@
-node "local-graphql.watch.aetnd.com" {
+node "rakuten.challenge" {
 
-  class { "watch_graphql_server": }
+  class { "challemge_server": }
   class { "local_server": }
 }

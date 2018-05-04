@@ -1,4 +1,4 @@
-class watch_graphql_server {
+class challemge_server {
 
   include stdlib
 
@@ -49,9 +49,9 @@ package { 'flask':
 
 class local_server {
 
-  nginx::resource::vhost { "local-graphql.watch.aetnd.com":
+  nginx::resource::vhost { "localhost":
     proxy             => "http://127.0.0.1:5000",
-    server_name       => [ "_", "local-graphql.watch.aetnd.com"],
+    server_name       => [ "_", "localhost"],
     index_files       => [],
   }
 }
